@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+
+  int nearestExit(vector<vector<char>>& maze,vector<int> entrance){
+    map<pair<int,int>,int> mp;
+  } 
+
+  // dp solution not best TLE
+  // int solve(vector<vector<int>> &dp, vector<vector<char>> maze,
+  //           vector<int> &start, int i, int j, int step, int row, int col) {
+  //   if (i >= row || i < 0 || j >= col || j < 0 || maze[i][j] == '+') {
+  //     return INT_MAX;
+  //   }
+  //   if (dp[i][j] != -1 && dp[i][j] != INT_MAX) {
+  //     return step + dp[i][j];
+  //   } else if (dp[i][j] == INT_MAX)
+  //     return INT_MAX;
+  //   else if ((i == 0 || j == 0 || i == row - 1 || j == col - 1) &&
+  //            (i != start[0] || j != start[1])) {
+  //     dp[i][j] = 0;
+  //     return step;
+  //   }
+  //   maze[i][j] = '+';
+  //   int left = solve(dp, maze, start, i, j - 1, step + 1, row, col);
+  //   int right = solve(dp, maze, start, i, j + 1, step + 1, row, col);
+  //   int up = solve(dp, maze, start, i - 1, j, step + 1, row, col);
+  //   int down = solve(dp, maze, start, i + 1, j, step + 1, row, col);
+  //   int ans = min(left, min(right, min(up, down)));
+  //   if (ans == INT_MAX) {
+  //     dp[i][j] = INT_MAX;
+  //     return ans;
+  //   }
+  //   dp[i][j] = ans - step;
+  //   return ans;
+  // }
+
+  // int nearestExit(vector<vector<char>> &maze, vector<int> &entrance) {
+  //   int n = maze.size(), m = maze[0].size();
+  //   vector<vector<int>> dp(n, vector<int>(m, -1));
+  //   int ans = solve(dp, maze, entrance, entrance[0], entrance[1], 0, n, m);
+  //   return ans == INT_MAX ? -1 : ans;
+  // }
+};
+
+int main() { return 0; }
