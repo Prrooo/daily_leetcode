@@ -31,6 +31,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// without sorting using unordered_set recommended
+
+class Solution {
+public:
+  int longestConsecutive(vector<int> &nums) {
+    int n = nums.size(), ans = 0;
+    unordered_set<int> st(nums.begin(), nums.end()), visited;
+    for (int i = 0; i < n; i++) {
+      if (st.find(nums[i] - 1) == st.end()) {
+        int tempCount = 0, tempNo = nums[i];
+        while (st.find(tempNo) != st.end() &&
+               visited.find(tempNo) == visited.end()) {
+          visited.insert(tempNo);
+          tempNo++, tempCount++;
+        }
+        ans = max(ans, tempCount);
+      }
+    }
+    return ans;
+  }
+};
+
+// using sorting not recommended
+
 int longestConsecutive(vector<int> &nums) {
   sort(nums.begin(), nums.end());
   int curr = 1, ans = 0, n = nums.size();
