@@ -1,14 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int whatChar(char a){
-  if(a=='a') return 0;
-  else if(a=='e') return 1;
-  else if(a=='i') return 2;
-  else if(a=='o') return 3;
-  else if(a=='u') return 4;
+int whatChar(char a) {
+  if (a == 'a')
+    return 0;
+  else if (a == 'e')
+    return 1;
+  else if (a == 'i')
+    return 2;
+  else if (a == 'o')
+    return 3;
+  else if (a == 'u')
+    return 4;
   return -5;
-
 }
 
 long long countOfSubstrings(string word, int k) {
@@ -26,11 +30,9 @@ long long countOfSubstrings(string word, int k) {
       vCo[3]++;
     } else if (word[i] == 'u' && vCo[4] == 0) {
       vCo[4]++;
-    }
-    else if(whatChar(word[i])==-1 && vCo[5]<k){
-      vCo[5]++; 
-    }
-    else{
+    } else if (whatChar(word[i]) == -1 && vCo[5] < k) {
+      vCo[5]++;
+    } else {
       count++;
       i++;
     }
