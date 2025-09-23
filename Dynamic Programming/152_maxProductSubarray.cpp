@@ -1,0 +1,73 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// best solution without using dp
+class Solution {
+public:
+  int maxProduct(vector<int> &nums) {
+    int n = nums.size(), temp = 1, ans = INT_MIN;
+    for (int i = 0; i < n; i++) {
+      temp *= nums[i];
+      ans = max(ans, temp);
+      if (temp == 0) {
+        temp = 1;
+      }
+    }
+    temp = 1;
+    for (int i = n - 1; i >= 0; i--) {
+      temp *= nums[i];
+      ans = max(ans, temp);
+      if (temp == 0) {
+        temp = 1;
+      }
+    }
+    return ans;
+  }
+};
+
+// trying another solution
+// this solution work but erro TLE
+
+class Solution2 {
+public:
+  void solve(vector<int> &nums, int &ans, int temp, int n, int index) {
+    for (int i = index; i < n; i++) {
+      temp *= nums[i];
+      ans = max(ans, temp);
+      if (temp <= 0) {
+        solve(nums, ans, temp, n, i + 1);
+        temp = 1;
+      }
+    }
+  }
+
+  int maxProduct(vector<int> &nums) {
+    int n = nums.size(), ans = INT_MIN;
+    solve(nums, ans, 1, n, 0);
+    return ans;
+  }
+};
+
+// initialy i though of this solution which do not pass test case for -ve number
+// but work for +ve numbers
+
+class Solution1 {
+public:
+  int maxProduct(vector<int> &nums) {
+    int n = nums.size(), pro = nums[0], ans = INT_MIN;
+    for (int i = 1; i < n; i++) {
+      pro *= nums[i];
+      ans = max(ans, pro);
+      cout << pro << " " << i << endl;
+      if (pro < 0) {
+        if (i + 1 < n && nums[i + 1] < 0) {
+          continue;
+        }
+        pro = 1;
+      }
+    }
+    return ans;
+  }
+};
+
+int main() { return 0; }
