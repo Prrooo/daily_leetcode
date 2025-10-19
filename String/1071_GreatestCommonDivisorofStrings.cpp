@@ -60,7 +60,7 @@ bool isValid(string str1, string str2, int k) {
   return joinWords(base, len1) == str1 && joinWords(base, len2) == str2;
 }
 
-string gcdOfStrings(string str1, string str2) {
+string gcdOfStrings2(string str1, string str2) {
   int n1 = str1.size(), n2 = str2.size();
   for (int i = min(n1, n2); i > 0; i--) {
     if (isValid(str1, str2, i)) {
