@@ -4,7 +4,7 @@ using namespace std;
 // two pointer approach
 // we keep track of the max pointer from both the ends star and end
 
-class Solution {
+class Solution1 {
 public:
   int trap(vector<int> &height) {
     int n = height.size(), ans = 0;
