@@ -1,6 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// best solution according to me
+
+class Solution1 {
+public:
+  int countPalindromicSubsequence(string s) {
+    int n = s.size(), ans = 0;
+    vector<pair<int, int>> count(26, {-1, -1});
+    for (int i = 0; i < n; i++) {
+      if (count[s[i] - 'a'].first == -1) {
+        count[s[i] - 'a'].first = i;
+      }
+      count[s[i] - 'a'].second = i;
+    }
+
+    for (int i = 0; i < 26; i++) {
+      if ((count[i].first == -1 && count[i].second == -1) ||
+          (count[i].first == count[i].second))
+        continue;
+
+      unordered_set<char> temp;
+      for (int j = count[i].first + 1; j < count[i].second; j++) {
+        temp.insert(s[j]);
+      }
+      ans += temp.size();
+    }
+    return ans;
+  }
+};
+
 // brute force solution
 // error TLE
 
