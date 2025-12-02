@@ -3,10 +3,8 @@
 using namespace std;
 
 int main() {
-  string s;
-  cin >> s;
-  // int num = stoi(s);
-  int n = stoi(s);
-  cout << n;
+  pair<int, int> pos = make_pair(-1, -1);
+  string s = "asdfas";
+  cout << s.substr(3, 2);
   return 0;
 }
